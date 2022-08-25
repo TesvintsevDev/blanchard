@@ -1,0 +1,469 @@
+.publication {
+  padding-top: 87px;
+  padding-bottom: 74px;
+  background-image: url(../img/publication-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.publication-container {
+  display: flex;
+}
+
+.publication__title {
+  color: var(--white-color);
+  margin-bottom: 26px;
+}
+
+.publication__subtitle {
+  margin-bottom: 15px;
+  color: var(--white-color);
+  text-align: left;
+  font-weight: 700;
+
+}
+
+.publication__form {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 23%;
+}
+
+.publication__category {
+  display: flex;
+  flex-direction: column;
+}
+
+.publication__form-label {
+  padding-left: 26px;
+  margin-bottom: 14px;
+  position: relative;
+  cursor: pointer;
+}
+
+.publication__form-checkbox {
+  text-align: center;
+}
+
+.publication__form-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--white-color);
+}
+
+.publication__form-checkbox::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  opacity: 0;
+  background-color: #C283F3;
+  border-radius: 100%;
+}
+
+.publication__form-icon {
+  display: none;
+}
+
+.publication__form-text {
+  color: var(--white-color);
+  text-align: center;
+}
+
+.publication__form-input[type="checkbox"]:checked + .publication__form-checkbox .publication__form-text {
+  color: #C283F3;
+}
+
+.publication__form-input[type="checkbox"]:checked + .publication__form-checkbox::before {
+  opacity: 1;
+}
+
+.publication__form-input[type="checkbox"]:checked + .publication__form-checkbox::after {
+  border: 1px solid #C283F3;
+}
+
+.publication__form-input[type="checkbox"]:focus + .publication__form-checkbox .publication__form-text {
+  outline: 2px solid var(--outline-color);
+}
+
+.publication__form-input[type="checkbox"]:hover + .publication__form-checkbox .publication__form-text {
+  color: var(--hover-color);
+}
+
+.publication__form-input[type="checkbox"]:active + .publication__form-checkbox .publication__form-text {
+  color: var(--outline-color);
+}
+
+.price {
+  margin-top: 26px;
+}
+
+.price-form {
+  max-width: 76%;
+  height: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  color: var(--white-color);
+
+}
+
+.price-form__label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.price-form__input {
+  padding: 0 8%;
+  height: 100%;
+  width: 65%;
+  color: var(--white-color);
+  background: rgba(157, 92, 208, 0.5);
+  border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* .price-form__from {
+  padding-right: 14px;
+} */
+
+.price-form__to {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.price-form__currency {
+  padding-left: 12px;
+}
+
+input[type="number"]::-moz-placeholder {color: rgba(255, 255, 255, 0.85);}
+input[type="number"]::-webkit-input-placeholder {color:rgba(255, 255, 255, 0.85);}
+input[type="number"]:-ms-input-placeholder {color:rgba(255, 255, 255, 0.85);}
+input[type="number"]::-ms-input-placeholder {color: rgba(255, 255, 255, 0.85);}
+input[type="number"]::placeholder {color: rgba(255, 255, 255, 0.85);}
+
+
+.publication__swiper-container {
+  padding-top: 27px;
+  flex-basis: 72%;
+  /* width: 1150px; */
+  margin-left: 85px;
+}
+
+.publication__swiper-navagation {
+  margin-bottom: 42px;
+}
+
+.publication__swiper-button-next {
+  right: -66px;
+}
+
+.publication__swiper-pagination {
+  width: 71px;
+  height: 20px;
+  top: 33px;
+  left: 29px;
+  z-index: -1;
+}
+
+.publication__slide-img {
+  margin-bottom: 21px;
+}
+
+.publication__slide-text {
+  max-width: 350px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--white-color);
+  margin-bottom: 15px;
+
+}
+
+.publication__slide-name {
+  font-weight: bold;
+  line-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.publication__slide-author {
+  display: block;
+  font-weight: normal;
+}
+
+.publication__slide-price {
+  font-style: italic;
+}
+
+.publication__slide-btn {
+  padding: 8px 21px;
+  color: var(--white-color);
+  transition: background-color .3s ease-in-out;
+}
+
+.publication__slide-span {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.publication__slide-btn:focus .publication__slide-span {
+  outline: 2px solid var(--outline-color);
+}
+
+.publication__slide-btn:active {
+  background-color: var(--outline-color);
+  border: 2px solid #D1A9F0;
+}
+
+.publication__btn-arrow {
+  display: none;
+}
+
+@media (max-width: 1366px) {
+  .publication__form {
+    flex-basis: 31%;
+  }
+
+  .price-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .publication {
+    padding-top: 86px;
+    padding-bottom: 83px;
+  }
+
+  .publication__slide-text {
+    max-width: 290px;
+  }
+
+  .publication__swiper-container {
+    margin-left: 23px;
+  }
+
+  .publication__swiper-pagination {
+    top: 35px;
+    left: 45px;
+  }
+
+  .publication__slide-img {
+    margin-bottom: 11px;
+    max-width: 290px;
+  }
+}
+
+@media (max-width: 970px) {
+
+  .publication {
+    padding-top: 89px;
+    padding-bottom: 75px;
+  }
+
+  .publication-container {
+    flex-direction: column;
+  }
+
+  .publication__category {
+    height: 130px;
+    column-count: 3;
+    flex-wrap: wrap;
+  }
+
+  .price {
+    margin-top: 23px;
+  }
+
+  .price-form {
+    max-width: 41%;
+  }
+
+  .publication__swiper-container {
+    max-width: 100%;
+    padding-top: 51px;
+    margin-left: 0;
+  }
+
+  .publication__swiper-pagination {
+    top: 55px;
+    left: 29px;
+  }
+
+  .publication__swiper-wrapper {
+    margin-left: 27px;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .publication {
+    padding-top: 53px;
+    padding-bottom: 2px;
+  }
+  .publication__category {
+    height: auto;
+    column-count: 1;
+    flex-wrap: nowrap;
+  }
+
+  .publication__title {
+    margin-bottom: 15px;
+  }
+
+  .publication__btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 7px;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, .5);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+  }
+
+  .publication__btn-arrow {
+    display: block;
+    stroke: #fff;
+  }
+
+  .arrow-active {
+    stroke: #c283f3;
+    transform: rotate(180deg);
+    margin-top: 5px;
+  }
+
+  .arrow-active path {
+    stroke: #c283f3;
+  }
+
+  .publication__form-label {
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+
+  .price {
+    margin-top: 18px;
+  }
+
+  .price-form {
+    max-width: 95%;
+  }
+
+  .price-form__input {
+    width: 100%;
+  }
+
+  .price-form__from {
+    padding-right: 11px;
+  }
+
+  .price-form__to {
+    padding-left: 5px;
+    padding-right: 11px;
+  }
+
+  .price-form-currency {
+    padding-left: 10px;
+  }
+
+  .publication__form-checkbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .publication__form-icon {
+    color: #c283f3;
+  }
+
+  .publication__form-icon {
+    fill: #c283f3;
+  }
+
+  .publication__form-checkbox::after {
+    top: 7px;
+  }
+
+  .publication__form-checkbox::before {
+    top: 11px;
+  }
+
+  .publication__form-label {
+    display: none;
+  }
+
+  .publication__form-label.active {
+    display: block;
+  }
+
+  .publication__form-input[type="checkbox"]:checked + .publication__form-checkbox .publication__form-icon {
+    display: block;
+  }
+
+  .publication__swiper-navagation {
+    display: none;
+  }
+
+  .publication__swiper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 0;
+  }
+
+  .publication__slide  {
+    margin-bottom: 50px;
+    width: 44%;
+  }
+
+  .publication__slide:not(:nth-child(2n))  {
+    margin-right: 25px;
+  }
+
+  .publication__slide-text {
+    flex-direction: column;
+    margin-bottom: 14px;
+  }
+
+  .publication__slide-btn {
+    width: 100%;
+  }
+
+  .publication__slide-img {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .publication__slide-name,
+  .publication__slide-price {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
