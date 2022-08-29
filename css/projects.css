@@ -1,0 +1,237 @@
+.projects {
+  padding-top: 85px;
+  padding-bottom: 80px;
+}
+
+.projects__title {
+  margin-bottom: 21px;
+}
+
+.projects__descr {
+  max-width: 65.7%;
+  margin-bottom: 24px;
+  line-height: 32px;
+}
+
+.projects__link {
+  color: var(--hover-color);
+  font-weight: 600;
+}
+
+.projects__link:hover {
+  text-decoration: underline;
+}
+
+.projects__link:active {
+  color: var(--outline-color);
+}
+
+
+.tooltip {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.tooltip-marker {
+  padding-top: 6px;
+  padding-right: 4px;
+  width: 22px;
+  height: 22px;
+  fill: transparent;
+  transition: fill .3s ease-in-out;
+}
+
+.tooltip-marker__circle {
+  stroke: var(--hover-color);
+}
+
+.tooltip-marker__icon {
+  fill: var(--black-color);
+}
+
+.tooltip:hover .tooltip-marker,
+.tooltip:focus .tooltip-marker {
+  fill: #D1A9F0;
+}
+
+.tooltip:active .tooltip-marker__circle {
+  fill: var(--hover-color);
+}
+
+.tooltip:active .tooltip-marker__icon {
+  fill: var(--white-color);
+}
+
+.tooltip:focus {
+  outline: none;
+}
+
+.tippy-box[data-theme~='tooltip-theme'] {
+  background-color: var(--hover-color);
+  color: var(--white-color);
+  font-family: 'OpenSans';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: var(--hover-color);
+}
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: var(--hover-color);
+}
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: var(--hover-color);
+}
+.tippy-box[data-theme~='tooltip-theme'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: var(--hover-color);
+}
+
+.partners {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 23px;
+}
+
+.partners__swiper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.partners__swiper-container {
+  max-width: 1450px;
+}
+
+.partners__swiper-slide-link {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  border: 1px solid #cacaca;
+}
+
+.partners__swiper-slide-link:focus,
+.partners__swiper-slide-link:active {
+  outline: none;
+  border: 2px solid var(--hover-color);
+}
+
+.partners__swiper-slide-img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: filter .3s ease-in-out;
+}
+
+.partners__swiper-slide-link:hover .partners__swiper-slide-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.partners__swiper-slide-link:active .partners__swiper-slide-img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.partners__button-prev,
+.partners__button-next {
+  position: absolute;
+  top: 55%;
+}
+
+.partners__button-prev {
+  left: 0;
+}
+
+.partners__button-next {
+  right: 0;
+}
+
+.partners__button-prev,
+.partners__button-next {
+  background-color:#ececec;
+  border: 2px solid #ececec;
+}
+
+@media (max-width: 1600px) {
+  .partners__swiper-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 1366px) {
+.projects__descr {
+    max-width: 80%;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .projects__descr {
+    overflow: hidden;
+    max-width: 99%;
+  }
+
+  .partners__swiper-slide-link {
+    height: 130px;
+  }
+
+}
+
+@media (max-width: 970px) {
+  .projects__descr {
+    margin-bottom: 27px;
+  }
+
+  .partners__swiper-slide-link {
+    height: 105px;
+  }
+
+  .partners {
+    margin-bottom: 33px;
+  }
+
+  .partners__swiper-container {
+    max-width: 85%;
+  }
+}
+
+
+@media (max-width: 667px) {
+  .projects {
+    padding-top: 55px;
+    padding-bottom: 50px;
+  }
+
+  .projects__title {
+    margin-bottom: 15px;
+  }
+
+  .partners {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+  .projects__descr {
+    margin-bottom: 15px;
+  }
+
+  .partners__swiper-container {
+    max-width: 65%;
+  }
+
+  .partners__swiper-slide-link {
+    height: 65px;
+  }
+
+  .partners__swiper-slide-img {
+    height: 25px;
+  }
+}
+
+
