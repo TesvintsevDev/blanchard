@@ -1,0 +1,126 @@
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.modal__content {
+  display: flex;
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.modal {
+  background-color: var(--white-color);
+  max-width: 900px;
+  max-height: 500px;
+  position: relative;
+  /* display: flex; */
+}
+
+.modal__image-picture {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.modal__descr {
+  width: 500px;
+  height: 500px;
+  padding: 121px 58px 121px 48px;
+}
+
+.modal__painter-name {
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.modal__picture-name {
+  line-height: 22px;
+}
+
+.modal__painter-years {
+  display: block;
+  margin-bottom: 41px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #969696;
+}
+
+.modal__picture-descr {
+  line-height: 32px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 38px;
+  width: 16px;
+  height: 16px;
+}
+
+.modal__close-line {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background-color: var(--black-color);
+}
+
+.modal__close-line:first-child {
+  transform: rotate(45deg);
+}
+
+.modal__close-line:last-child {
+  transform: rotate(-45deg);
+}
+
+
+@media (max-width: 970px) {
+  .modal {
+    max-width: 668px;
+    max-height: 594px;
+  }
+
+  .modal__image-picture {
+    width: 301px;
+    height: 594px;
+  }
+
+  .modal__descr {
+    width: 367px;
+    height: 594px;
+    padding: 122px 36px 122px 48px;
+  }
+}
+
+@media (max-width: 667px) {
+  .modal {
+    max-width: 290px;
+    max-height: 600px;
+    flex-direction: column;
+  }
+
+  .modal__image-picture {
+    width: 290px;
+    height: 200px;
+  }
+
+  .modal__descr {
+    width: 290px;
+    height: 400px;
+    padding: 17px 20px 26px 20px;
+  }
+
+  .modal__painter-years {
+    margin-bottom: 0;
+  }
+}
