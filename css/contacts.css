@@ -66,6 +66,8 @@
 }
 
 .contacts-form__btn-text {
+  display: flex;
+  justify-content: center;
   font-weight: 600;
   font-size: 18px;
   line-height: 25px;
