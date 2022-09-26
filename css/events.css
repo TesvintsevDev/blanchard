@@ -4,11 +4,8 @@
 }
 
 .events__head-title {
-<<<<<<< HEAD
   margin-bottom: 20px;
-=======
   margin-bottom: 21px;
->>>>>>> cab5824b97f6832140f1d745023d37f89983553f
 }
 
 .events__list {
@@ -172,6 +169,7 @@
 .events__slider-container .swiper-wrapper {
   flex-wrap: wrap;
 }
+
 
 @media (max-width: 1366px) {
   .events__item-bg {
