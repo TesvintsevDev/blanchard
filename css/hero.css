@@ -1,195 +1,270 @@
-@keyframes heroAnimation {
-  0% {
-    opacity: 0;
-    animation-timing-function: ease-in;
-  }
-  8% {
-    opacity: 1;
-    transform: scale(1.05);
-    animation-timing-function: ease-out;
-  }
-  17% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  25% {
-    opacity: 0;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 .hero {
-  position: relative;
+  margin-top: -70px
 }
 
-.hero__fade-container {
-  position: absolute;
-  top: -140px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 700px;
-  z-index: -1;
-  overflow: hidden;
+.hero-crossfade-info {
+  position      : relative;
+  padding-top   : 120px;
+  padding-bottom: 121px;
+  width         : 680px;
+  margin-left   : 100px;
+  margin-top    : 20px
 }
 
-.hero__fade-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform: scale(1.1);
-  animation: heroAnimation 39s linear infinite 0s;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
+.hero-crossfade-info__header {
+  padding    : 1px;
+  font-weight: bold;
+  font-size  : 72px;
+  line-height: 84px;
+  color      : var(--white)
 }
 
-.hero__fade-slide:nth-child(1) {
-  background-image: url(../img/slider-promo_1.webp);
-}
-
-.hero__fade-slide:nth-child(2) {
-  background-image: url(../img/slider-promo_2.webp);
-  animation-delay: 6s;
-}
-
-.hero__fade-slide:nth-child(3)  {
-  background-image: url(../img/slider-promo_3.webp);
-  animation-delay: 12s;
-}
-
-.hero__fade-slide:nth-child(4) {
-  background-image: url(../img/slider-promo_1.webp);
-  animation-delay: 18s;
-}
-
-.hero__fade-slide:nth-child(5) {
-  background-image: url(../img/slider-promo_2.webp);
-  animation-delay: 24s;
-}
-
-.hero__fade-slide:nth-child(6)  {
-  background-image: url(../img/slider-promo_3.webp);
-  animation-delay: 30s;
-}
-
-.hero__container {
-  margin-top: 70px;
-}
-
-.hero__text {
-  max-width: 35%;
-}
-
-.hero__text-title{
-  font-weight: 700;
-  font-size: 72px;
-  color: var(--white-color);
-  margin-bottom: 21px;
-}
-
-.hero__text-subtitle {
-  margin-bottom: 92px;
-  font-weight: 700;
-  font-size: 18px;
+.hero-crossfade-info__text {
+  padding    : 17px 1px 1px 5px;
+  font-weight: bold;
+  font-size  : 18px;
   line-height: 30px;
-  color: var(--white-color);
+  color      : var(--white)
 }
 
-.hero__button {
-  padding: 20px 32px;
-  margin-left: 5px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
-  color: var(--white-color);
-  background-color: var(--hover-color);
-  border: 3px solid transparent;
+.hero-crossfade-info__btn {
+  display      : block;
+  margin-top   : 91px;
+  margin-left  : 5px;
+  padding      : 1px;
+  padding      : 21px;
+  width        : 314px;
+  min-height   : 70px;
+  border       : 3px solid transparent;
+  outline      : transparent;
   border-radius: 100px;
-  -webkit-transition: border .3s ease-in-out, background-color .3s ease-in-out;
-  transition: border .3s ease-in-out, background-color .3s ease-in-out;
+  font-weight  : bold;
+  font-size    : 18px;
+  line-height  : 25px;
+  text-align   : center;
+  background   : var(--moderateviolet);
+  color        : var(--white);
+  transition   : 0.5s ease-in-out;
+  cursor       : pointer
 }
 
-.hero__button:hover {
-  border: 3px solid #D1A9F0;
+#crossfade {
+  background-image : url(../img/hero/baner-1-1920.jpg);
+  background-size  : 100% 100%;
+  background-repeat: no-repeat;
+  display          : flex;
+  align-items      : center;
+  overflow         : hidden;
+  position         : relative
 }
 
-.hero__button:focus {
-  /* border: 3px solid var(--outline-color); */
-  outline: none;
+.hero-crossfade__img-one {
+  background-image : url(../img/hero/baner-1-1920.jpg);
+  background-size  : 100% 100%;
+  background-repeat: no-repeat
 }
 
-.hero__button:active {
-  background-color: var(--outline-color);
-  border: 3px solid #D1A9F0;
+.hero-crossfade__img-two {
+  background-image : url(../img/hero/baner-2-1920.jpg);
+  background-size  : 100% 100%;
+  background-repeat: no-repeat
 }
 
-@media (max-width: 1200px) {
-  .hero__container {
-    margin-top: 112px;
+.hero-crossfade__img-three {
+  background-image : url(../img/hero/baner-3-1920.jpg);
+  background-size  : 100% 100%;
+  background-repeat: no-repeat
+}
+
+#crossfade span {
+  position           : absolute;
+  width              : 100%;
+  height             : 100%;
+  backface-visibility: hidden;
+  opacity            : 0;
+  transform          : scale(1.4);
+  animation          : crossfade 24s infinite
+}
+
+#crossfade span:nth-child(3) {
+  animation-delay: 6s
+}
+
+#crossfade span:nth-child(2) {
+  animation-delay: 12s
+}
+
+#crossfade span:nth-child(1) {
+  animation-delay: 18s
+}
+
+@keyframes crossfade {
+  25% {
+    opacity  : 1;
+    transform: scale(1.2)
   }
 
-  .hero__fade-container {
-    max-height: 768px;
-  }
-
-  .hero__text {
-    max-width: 72%;
-  }
-
-  .hero__text-title {
-    margin-bottom: 15px;
-  }
-
-  .hero__text-subtitle {
-    margin-bottom: 132px;
+  40% {
+    opacity: 0;
   }
 }
 
-@media (max-width: 970px) {
-  .hero__text {
-    max-width: 100%;
-  }
-
-  .hero__text-subtitle {
-    margin-left: 5px;
+@media (hover:hover) and (pointer:fine) {
+  .hero-crossfade-info__btn:hover {
+    border    : 3px solid var(--darkmoderateviolet);
+    transition: 0.5s ease-in-out;
   }
 }
 
-@media (max-width: 667px) {
-  .hero__text {
-    text-align: center;
+.hero-crossfade-info__btn:focus {
+  background-color: var(--darkmoderateviolet);
+  border          : 3px solid var(--verysoftviolet)
+}
+
+@media(max-width:1024px) {
+  .hero-crossfade-info__btn:active {
+    border: 3px solid var(--verysoftviolet)
   }
 
-  .hero__text-title {
-    font-size: 32px;
+  #crossfade {
+    background-image: url(../img/hero/baner-1-1024.jpg)
   }
 
-  .hero__text-subtitle {
-    font-size: 12px;
-    line-height: 16px;
+  .hero-crossfade__img-one {
+    background-image: url(../img/hero/baner-1-1024.jpg)
   }
 
-  .hero__fade-container {
-    max-height: 415px;
+  .hero-crossfade__img-two {
+    background-image: url(../img/hero/baner-2-1024.jpg)
   }
 
-  .hero__container {
-    margin-top: 34px;
+  .hero-crossfade__img-three {
+    background-image: url(../img/hero/baner-3-1024.jpg)
   }
 
-  .hero__text-subtitle {
-    margin-bottom: 40px;
+  .hero-crossfade-info {
+    margin-left   : 35px;
+    padding-top   : 163px;
+    padding-bottom: 114px
   }
 
-  .hero__button {
-    margin-left: 0;
-    padding: 9px 16px;
-    font-size: 12px;
-    line-height: 16px;
-    }
+  .hero-crossfade-info__header {
+    padding-right: 83px
+  }
+
+  .hero-crossfade-info__text {
+    padding: 8px 0px 1px 5px;
+  }
+
+  .hero-crossfade-info__btn {
+    margin-top: 132px;
+  }
+}
+
+@media(max-width:768px) {
+  #crossfade {
+    background-image: url(../img/hero/baner-1-768.jpg)
+  }
+
+  .hero-crossfade__img-one {
+    background-image: url(../img/hero/baner-1-768.jpg)
+  }
+
+  .hero-crossfade__img-two {
+    background-image: url(../img/hero/baner-2-768.jpg)
+  }
+
+  .hero-crossfade__img-three {
+    background-image: url(../img/hero/baner-3-768.jpg)
+  }
+
+  .hero-crossfade-info {
+    margin-left: 34px;
+    padding-top: 162px;
+  }
+
+  .hero-crossfade-info__btn {
+    margin-top: 133px;
+  }
+}
+
+@media(max-width:710px) {
+  .hero-crossfade-info {
+    padding-top: 127px;
+    margin     : 0
+  }
+
+  .hero-crossfade-info__header {
+    padding-right: 1px;
+    font-size    : 50px;
+    line-height  : 44px;
+    text-align   : center
+  }
+
+  .hero-crossfade-info__text {
+    text-align: center
+  }
+
+  .hero-crossfade-info__btn {
+    margin: auto;
+
+    margin-top : 87px;
+    width      : 250px;
+    font-size  : 16px;
+    line-height: 16px
+  }
+}
+
+@media(max-width:480px) {
+  .hero-crossfade-info__header {
+    font-size: 32px
+  }
+
+  .hero-crossfade-info__text {
+    font-size: 14px
+  }
+
+  .hero-crossfade-info__btn {
+    font-size : 14px;
+    min-height: 50px
+  }
+}
+
+@media(max-width:320px) {
+  .hero-crossfade-info {
+    padding: 104px 16px 46px 19px;
+  }
+
+  .hero-crossfade-info__header {
+    padding-left : 3px;
+    padding-right: 5px;
+    line-height  : 37px
+  }
+
+  .hero-crossfade-info__text {
+    padding    : 11px 1px 1px 1px;
+    font-weight: normal;
+    font-size  : 12px;
+    line-height: 16px
+  }
+
+  .hero-crossfade-info__btn {
+    padding   : 9px;
+    margin-top: 40px;
+    font-size : 12px;
+    width     : 200px;
+    min-height: 40px
+  }
+
+  .hero-crossfade__img-one {
+    background-image: url(../img/hero/baner-1-320.jpg)
+  }
+
+  .hero-crossfade__img-two {
+    background-image: url(../img/hero/baner-2-320.jpg)
+  }
+
+  .hero-crossfade__img-three {
+    background-image: url(../img/hero/baner-3-320.jpg)
+  }
 }

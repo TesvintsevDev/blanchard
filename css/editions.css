@@ -1,0 +1,872 @@
+.editions {
+  background-image : url(../img/editions/birmingham-museums_1920.jpg);
+  background-repeat: no-repeat;
+  background-size  : cover;
+  margin-top       : 82px;
+}
+
+.editions-right-swiper {
+  position           : relative;
+  width              : 100%;
+  height             : 100%;
+  z-index            : 1;
+  display            : flex;
+  transition-property: transform;
+  box-sizing         : content-box
+}
+
+.editions-right-swiper-slide {
+  display            : flex;
+  flex-direction     : column;
+  flex-shrink        : 0;
+  width              : 100%;
+  height             : 100%;
+  position           : relative;
+  transition-property: transform
+}
+
+.editions-grid {
+  position: relative;
+  display : flex;
+  padding : 80px 64px 0 58px
+}
+
+.editions-left {
+  position: relative;
+  flex    : 0 0 29.5%
+}
+
+.editions-right {
+  margin-top: 16px
+}
+
+.editions-right-swiper-container {
+  width   : 1150px;
+  height  : 594px;
+  overflow: hidden
+}
+
+.editions-left__header {
+  padding-left: 42px;
+  color       : var(--white)
+}
+
+.editions-categories {
+  display       : flex;
+  flex-direction: column
+}
+
+.editions-categories-header {
+  margin-left: 46px;
+  font-size  : 15px;
+  padding-top: 16px;
+  font-weight: 700;
+  outline    : transparent;
+  color      : var(--white);
+}
+
+.editions-categories-header::after {
+  content: ':'
+}
+
+.editions-categories-left-elem,
+.editions-categories-right-elem,
+.editions-categories-centr-elem {
+  margin-left: 30px;
+  position   : relative;
+  cursor     : pointer
+}
+
+.editions-categories-left,
+.editions-categories-right,
+.editions-categories-centr {
+  margin-left   : 41px;
+  display       : flex;
+  flex-direction: column
+}
+
+.edition-check:checked,
+.edition-check:not(:checked) {
+  position          : absolute;
+  -webkit-appearance: none;
+}
+
+.edition-check:checked+.edition-label,
+.edition-check:not(:checked)+.edition-label {
+  position  : relative;
+  cursor    : pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.edition-label {
+  color  : var(--white);
+  outline: none;
+}
+
+.edition-check:checked+.edition-label::before,
+.edition-check:not(:checked)+.edition-label::before {
+  content   : "";
+  position  : absolute;
+  left      : -25px;
+  top       : 4px;
+  width     : 12px;
+  height    : 12px;
+  border    : 1px solid var(--white);
+  transition: 0.2s ease-in-out;
+}
+
+.edition-check:checked+.edition-label::after,
+.edition-check:not(:checked)+.edition-label::after {
+  content         : "";
+  position        : absolute;
+  transition      : 0.2s ease-in-out;
+  left            : -20px;
+  top             : 9px;
+  width           : 4px;
+  height          : 4px;
+  border-radius   : 50%;
+  background-color: var(--darkmoderateviolet);
+}
+
+.edition-check:checked+.edition-label::after {
+  opacity: 1;
+}
+
+.edition-check:checked+.edition-label::before {
+  border-color: var(--darkmoderateviolet);
+}
+
+.edition-check:checked+.edition-label {
+  color: var(--darkmoderateviolet);
+}
+
+.edition-check:not(:checked)+.edition-label::after {
+  opacity: 0;
+}
+
+.editions-centr {
+  position: absolute;
+  bottom  : 82px;
+  left    : 46px
+}
+
+.editions-price {
+  width        : 341px;
+  min-height   : 40px;
+  border-radius: 6px;
+  border       : 1px solid var(--white)
+}
+
+.editions-price__input {
+  padding-left    : 8px;
+  padding-top     : 5px;
+  display         : inline;
+  border          : none;
+  outline         : none;
+  width           : 82px;
+  height          : 38px;
+  background-color: rgba(var(--moderateviolet--rgb), 0.5);
+  color           : var(--white)
+}
+
+.editions-price__span {
+  color: var(--white)
+}
+
+.span-1 {
+  margin: 0 9px 14px 18px
+}
+
+.span-2 {
+  margin: 0 8px 1px 6px
+}
+
+.span-3 {
+  padding-left: 6px
+}
+
+.editions-right-swipe-books__name {
+  color      : var(--white);
+  font-weight: 700;
+  font-size  : 16px;
+  line-height: 22px
+}
+
+.editions-name-five::after {
+  content: 'ки в граф...'
+}
+
+.editions-name-six::after {
+  content: 'ических ст...'
+}
+
+.editions-name-seven::after {
+  content: 'зуальное в...'
+}
+
+.editions-author-four::after {
+  content: 'димир'
+}
+
+.editions-author-five::after {
+  content: 'нн,Йозеф'
+}
+
+.editions-right-swipe-books__author {
+  color      : var(--white);
+  font-weight: 400;
+  font-size  : 16px;
+  line-height: 22px
+}
+
+.editions-right-swipe-books-price {
+  color       : var(--white);
+  font-style  : italic;
+  font-weight : 400;
+  font-size   : 16px;
+  line-height : 22px;
+  margin-right: 2px;
+  margin-top  : 2px
+}
+
+.editions-right-swiper-image {
+  height: 390px
+}
+
+.editions-right-swiper-info {
+  display        : flex;
+  justify-content: space-between;
+  margin-top     : 23px;
+}
+
+.editions-right-swipe-books-btn {
+  margin-top      : 17px;
+  padding         : 1px 1px 6px 1px;
+  min-width       : 120px;
+  min-height      : 40px;
+  width           : fit-content;
+  background-color: transparent;
+  outline         : none;
+  border-radius   : 100px;
+  font-weight     : 700;
+  line-height     : 22px;
+  border          : 2px solid var(--moderateviolet);
+  color           : var(--white);
+  transition      : 0.5s ease-in-out;
+  cursor          : pointer
+}
+
+.editions-right-swipe-books-btn__text {
+  outline: 2px solid transparent;
+}
+
+.editions-right-swiper-button__prev,
+.editions-right-swiper-button__next {
+  margin-bottom      : 30px;
+  position           : static;
+  background         : var(--verydarkgray);
+  outline            : transparent;
+  width              : 30px;
+  height             : 30px;
+  border-radius      : 30px;
+  background-position: center;
+  background-repeat  : no-repeat
+}
+
+.editions-right-swiper-button__prev {
+  background-image: url(../img/editions/left-ctr.png);
+  cursor          : pointer
+}
+
+.editions-right-swiper-button__next {
+  background-image: url(../img/editions/right-str.png);
+  cursor          : pointer
+}
+
+.editions-right-swiper-button {
+  width          : 130px;
+  display        : flex;
+  justify-content: space-between;
+  padding-top    : 17px
+}
+
+.editions-right-swiper-button__prev::after,
+.editions-right-swiper-button__next::after {
+  display: none
+}
+
+.editions-right-swiper-button__pagination {
+  top      : 0;
+  width    : 40px;
+  position : relative;
+  font-size: 16px;
+  color    : var(--white)
+}
+
+.editions-centr-cost {
+  position: absolute;
+  color   : var(--white);
+  bottom  : 49px
+}
+
+@media (hover:hover) and (pointer: fine) {
+  .editions-right-swipe-books-btn:hover {
+    background-color: var(--moderateviolet);
+    transition      : 0.5s ease-in-out;
+  }
+
+  .edition-elem:hover .edition-label {
+    color: var(--softviolet);
+  }
+
+  .edition-elem:hover .edition-check:not(:checked)+.edition-label::before {
+    border-color: var(--softviolet);
+  }
+
+}
+
+.edition-check:focus+.edition-label {
+  outline: 1px solid var(--darkmoderateviolet);
+  color  : var(--white);
+}
+
+.editions-right-swipe-books-btn:focus {
+  background-color: transparent;
+}
+
+.editions-right-swipe-books-btn:focus .editions-right-swipe-books-btn__text {
+  outline   : 2px solid var(--moderateviolet);
+  transition: 0.5s ease-in-out;
+}
+
+@media(max-width:1700px) {
+  .editions-right-swiper-container {
+    width: 700px
+  }
+
+  .editions-left {
+    position: static
+  }
+
+  .editions-grid {
+    padding: 80px 0 71px 0
+  }
+
+  .editions-centr {
+    right : 40px;
+    top   : 104px;
+    left  : auto;
+    bottom: auto
+  }
+}
+
+@media(max-width:1024px) {
+  .editions-right-swipe-books-btn:active {
+    border          : 3px solid var(--verysoftviolet);
+    background-color: var(--moderateviolet);
+    transition      : 0.5s ease-in-out;
+  }
+
+  .edition-elem:active .edition-check:not(:checked)+.edition-label,
+  .edition-elem:active .edition-check:checked+.edition-label {
+    color: var(--darkmoderateviolet);
+  }
+
+  .edition-elem:active .edition-check:not(:checked)+.edition-label::before,
+  .edition-elem:active .edition-check:checked+.edition-label::before {
+    border-color: var(--darkmoderateviolet);
+  }
+
+  .editions-name-five::after {
+    content: '...'
+  }
+
+  .editions-name-six::after {
+    content: '...'
+  }
+
+  .editions-name-seven::after {
+    content: '...'
+  }
+
+  .editions-author-four::after {
+    content: '...'
+  }
+
+  .editions-author-five::after {
+    content: '...'
+  }
+
+  .editions-right-swiper-image {
+    height: 320px
+  }
+
+  .editions-price__input {
+    padding-top: 0
+  }
+
+  .editions-right-swiper-info {
+    margin-top: 12px
+  }
+
+  .span-1 {
+    margin: 0 7px 14px 18px
+  }
+
+  .editions-right-swiper-container {
+    width : 629px;
+    height: 513px
+  }
+
+  .editions-grid {
+    padding: 79px 6px 0 0
+  }
+
+  .editions-right-swiper-button {
+    padding-top: 19px
+  }
+
+  .editions-categories-left-elem,
+  .editions-categories-right-elem,
+  .editions-categories-centr-elem {
+    margin-left: 22px
+  }
+
+  .editions-categories-header {
+    margin-left: 39px;
+    padding-top: 16px;
+    font-size  : 16px;
+  }
+
+  .editions-left__header {
+    padding-left: 36px
+  }
+
+  .editions {
+    margin-top      : 80px;
+    background-image: url(../img/editions/birmingham-museums-1024.jpg)
+  }
+
+  .editions-centr-cost {
+    position: absolute;
+    color   : var(--white)
+  }
+
+  .editions-right-swipe-books-btn {
+    margin-top: 16px
+  }
+
+  .editions-right-swipe-books-price {
+    margin-right: 3px
+  }
+
+  .editions-right {
+    margin-left: 42px
+  }
+
+  .editions-centr-cost {
+    bottom: 3px;
+    right : 358px
+  }
+}
+
+@media(max-width:1000px) {
+  .editions {
+    background-image: url(../img/editions/birmingham-museums-trus768.jpg)
+  }
+
+  .editions-grid {
+    flex-direction: column
+  }
+
+  .editions-right {
+    margin-left: 0
+  }
+
+  .editions-categories {
+    flex-direction: row
+  }
+}
+
+@media(max-width:768px) {
+  .editions-categories-left {
+    margin-left: 42px;
+  }
+
+  .editions-categories {
+    margin-top: 2px;
+  }
+
+  .edition-check:checked+.edition-label::before,
+  .edition-check:not(:checked)+.edition-label::before {
+    top   : 4px;
+    width : 10px;
+    height: 10px;
+  }
+
+  .editions-right {
+    margin-top : 137px;
+    margin-left: 2px
+  }
+
+  .editions-right-swipe-books-btn {
+    margin-top: 17px
+  }
+
+  .editions-price__input {
+    padding-top : 0;
+    padding-left: 10px
+  }
+
+  .editions-centr {
+    right: auto;
+    top  : 385px;
+    left : 39px
+  }
+
+  .editions-centr-cost {
+    color : var(--white);
+    bottom: 47px;
+    left  : 2px
+  }
+
+  .editions-grid {
+    padding: 79px 0 0 0
+  }
+
+  .editions {
+    margin-top: 85px
+  }
+
+  .editions-categories-centr {
+    margin-left: 61px
+  }
+
+  .editions-right-swiper-button {
+    padding-top: 18px;
+    margin-left: 30px;
+    width      : 133px
+  }
+
+  .editions-categories-right {
+    margin-left: 55px;
+  }
+
+  .editions-right-swiper-container {
+    width      : 614px;
+    height     : 511px;
+    margin-left: 66px
+  }
+
+  .editions-right-swiper-info {
+    margin-top: 12px
+  }
+
+  .editions-right-swipe-books-price {
+    margin-right: 2px;
+    margin-top  : 0
+  }
+
+  .editions-categories-header::after {
+    content: ' '
+  }
+}
+
+@media(max-width:723px) {
+  .editions {
+    background-size: cover
+  }
+
+  .editions-grid {
+    padding-top: 50px
+  }
+
+  .editions-right {
+    margin-top: 0
+  }
+
+  .editions-categories-left {
+    margin-left: 0px;
+  }
+
+  .editions-right-swiper-container {
+    margin: 0;
+    width : 100%;
+    height: auto
+  }
+
+  .editions-right-swiper-slide {
+    flex        : 0 0 43%;
+    margin-right: 29px;
+    margin-top  : 30px
+  }
+
+  .editions-right-swiper {
+    display       : flex;
+    flex-direction: row;
+    flex-wrap     : wrap
+  }
+
+  .editions-right-swiper-button {
+    display: none
+  }
+
+  .editions-centr {
+    position  : static;
+    margin-top: 20px
+  }
+
+  .editions-centr-cost {
+    position: static
+  }
+
+  .editions-categories {
+    flex-direction: column;
+    width         : 300px
+  }
+
+  .editions-categories-header::after {
+    content: ''
+  }
+
+  .editions-categories-header {
+    background-image     : url(../img/catalog/tick-close-hover.png);
+    background-repeat    : no-repeat;
+    padding-top          : 0;
+    background-position-x: 263px;
+    background-position-y: 14px;
+    background-size      : 12px;
+    width                : 279px;
+    font-size            : 16px;
+    margin-left          : 22px;
+    padding-left         : 11px;
+    border-bottom        : 1px solid rgba(var(--white--rgb), 0.5);
+    border-top           : 1px solid rgba(var(--white--rgb), 0.5);
+    cursor               : pointer
+  }
+
+  .editions-categories-header.active {
+    background-image: url(../img/catalog/tick-open-active.png)
+  }
+
+  .edition-elem {
+    display: none
+  }
+
+  .edition-elem--active {
+    display: flex;
+  }
+
+  .editions-categories-left-elem,
+  .editions-categories-right-elem,
+  .editions-categories-centr-elem {
+    margin-left: 59px;
+  }
+
+  .edition-elem:after {
+    position        : absolute;
+    content         : "";
+    background-color: rgba(var(--white--rgb), 0.5);
+    width           : 275px;
+    height          : 1px;
+    top             : 31px;
+    left            : -36px;
+    transition      : 0.2s ease-in-out;
+    opacity         : 0;
+  }
+
+  .edition-elem--active::after {
+    opacity   : 1;
+    transition: 0.5s ease-in-out;
+  }
+
+  .design {
+    display              : flex;
+    background-image     : url(../img/editions/crest.png);
+    background-repeat    : no-repeat;
+    background-position-x: 222px;
+    background-position-y: 9px;
+  }
+
+  .design.active {
+    background-image: none
+  }
+
+  .design.active::after {
+    position        : absolute;
+    content         : "";
+    background-color: rgba(var(--white--rgb), 0.5);
+    width           : 275px;
+    height          : 1px;
+    top             : 31px;
+    left            : -36px;
+    transition      : 0.2s ease-in-out;
+    opacity         : 0;
+  }
+
+  .design:after {
+    opacity   : 1;
+    transition: 0.5s ease-in-out;
+  }
+
+  .editions-categories-centr,
+  .editions-categories-right {
+    margin-left: 0
+  }
+
+  .editions-right-swiper-image {
+    height: auto
+  }
+
+  .edition-check:checked+.edition-label::before,
+  .edition-check:not(:checked)+.edition-label::before {
+    top: 10px;
+  }
+
+  .edition-check:checked+.edition-label::after,
+  .edition-check:not(:checked)+.edition-label::after {
+    left: -21px;
+    top : 14px;
+  }
+}
+
+@media(max-width:480px) {
+  .editions-grid {
+    padding-top: 50px
+  }
+
+  .editions-name-five::after {
+    content: 'ки...'
+  }
+
+  .editions-name-six::after {
+    content: 'ич...'
+  }
+
+  .editions-name-seven::after {
+    content: 'зуа...'
+  }
+
+  .editions-author-four::after {
+    content: 'ди...'
+  }
+
+  .editions-author-five::after {
+    content: 'нн...'
+  }
+
+  .editions-right-swiper-info {
+    flex-direction: column;
+    margin-top    : 8px
+  }
+
+  .editions-right-swiper-slide {
+    outline     : transparent;
+    margin-right: 0;
+    margin-top  : 20px
+  }
+
+  .editions-right-swiper-slide:nth-child(odd) {
+    margin-right: 30px;
+    margin-top  : 19px;
+    margin-left : 3px
+  }
+
+  .editions-price {
+    width      : 290px;
+    margin-top : 5px;
+    margin-left: 5px
+  }
+
+  .editions-right-swipe-books__name,
+  .editions-right-swipe-books__author,
+  .editions-right-swipe-books-price {
+    font-size  : 12px;
+    line-height: 16px
+  }
+
+  .editions-right-swipe-books-btn {
+    margin-top    : 12px;
+    min-width     : 130px;
+    font-size     : 12px;
+    line-height   : 16px;
+    padding-right : 2px;
+    padding-bottom: 4px;
+    margin-bottom : 29px
+  }
+
+  .editions-right-swipe-books-price {
+    margin-top: 2px
+  }
+
+  .editions {
+    margin-top: 41px
+  }
+
+  .editions-left__header {
+    font-weight : normal;
+    font-size   : 28px;
+    line-height : 38px;
+    padding-left: 2px
+  }
+
+  .editions-categories-header {
+    margin-left          : 5px;
+    padding-left         : 0;
+    margin-top           : 12px;
+    padding-top          : 2px;
+    padding-bottom       : 4px;
+    width                : 290px;
+    background-position-y: 17px;
+    background-position-x: 278px
+  }
+
+  .design {
+    background-position-x: 254px;
+    background-position-y: 9px;
+  }
+
+  .editions-categories-left-elem,
+  .editions-categories-right-elem,
+  .editions-categories-centr-elem {
+    width      : 270px;
+    margin-left: 29px;
+  }
+
+  .edition-elem:after {
+    width: 290px;
+    top  : 35px;
+    left : -24px;
+  }
+
+  .editions-centr {
+    margin-top: 24px;
+  }
+
+  .editions-centr-cost {
+    position   : static;
+    margin-left: 6px
+  }
+
+  .span-1 {
+    margin: 0 2px 12px 15px
+  }
+
+  .span-2 {
+    margin: 0 5px 1px 3px
+  }
+
+  .span-3 {
+    padding-left: 2px
+  }
+
+  .editions-price__input {
+    padding-left: 7px;
+    padding-top : 0;
+    width       : 70px
+  }
+
+  .editions-right-swiper {
+    padding-bottom: 21px
+  }
+}

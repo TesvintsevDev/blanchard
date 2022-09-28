@@ -1,439 +1,767 @@
-.gallery {
-  background-image: url(../img/gallery-bg.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 86px 0 83px;
+.gallery-right-modal {
+  --transition-time: 0.3s;
+  position         : fixed;
+  left             : 0;
+  top              : 0;
+  right            : 0;
+  bottom           : 0;
+  display          : flex;
+  align-items      : center;
+  justify-content  : center;
+  height           : 100vh;
+  width            : 100%;
+  overflow-y       : auto;
+  background-color : rgba(var(--black--rgb), 0.7);
+  opacity          : 0;
+  visibility       : hidden;
+  transition       : opacity var(--transition-time), visibility var(--transition-time);
+  z-index          : 250;
 }
 
-.gallery__link {
-  color: #C283F3;
+.fadeInUp {
+  opacity   : 0;
+  transform : translateY(-200px);
+  transition: opacity var(--transition-time), transform var(--transition-time);
 }
 
-.gallery__content {
-  display: flex;
+.fadeInUp.animate-open {
+  opacity   : 1;
+  transform : translateY(0);
+  transition: opacity var(--transition-time), transform var(--transition-time);
 }
 
-.gallery__filter {
-  width: 25%;
-  margin-right: 45px;
-  display: flex;
-  flex-direction: column;
+.gallery-modal-card {
+  position        : fixed;
+  background-color: var(--white);
+  width           : 900px;
+  align-items     : center;
+  justify-content : center;
+  display         : none;
+
 }
 
-.gallery__title {
-  margin-bottom: 28px;
-  color: var(--white-color);
+.modal.is-open {
+  opacity   : 1;
+  visibility: visible;
+
 }
 
-.gallery__subtitle {
-  margin-bottom: 16px;
-  color: var(--white-color);
+.gallery-modal-card.modal-open {
+  display: inline-block;
 }
 
-.gallery__select {
-  width: 100%;
+.disable-scroll {
+  position: relative;
+  overflow: hidden;
+  height  : 100vh;
+  position: fixed;
+  left    : 0;
+  top     : 0;
+  width   : 100%;
 }
 
-.gallery__descr {
-  margin-top: auto;
-  margin-bottom: -15px;
-  line-height: 32px;
-  max-width: 85%;
-  color: var(--white-color);
-}
-
-.choices__list {
-  color: var(--white-color);
-}
-
-.choices__item {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.choices__inner,
-.choices__list,
-.choices__list--dropdown .choices__item--selectable.is-highlighted {
-  background: transparent;
-}
-
-.choices__inner:hover,
-.choices__list--dropdown .choices__item--selectable.is-highlighted:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.choices:focus {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.choices__list {
-  z-index: 111;
-}
-
-.choices__list--dropdown .choices__item:not(:last-child) {
-  border-bottom: 1px solid #fff;
-}
-
-.choices__inner {
-  border-radius: 6px;
-  min-height: 40px;
-  padding-top: 4px;
-  padding-left: 12px;
-}
-
-.is-focused .choices__inner {
-  border-radius: 6px;
+.gallery-modal-card-wrapper {
+  display : flex;
+  position: relative;
   overflow: hidden;
 }
 
-.is-open .choices__list--dropdown {
-  border-radius: 6px;
-}
-
-.choices[data-type*=select-one]:after{
-  content: '';
-  height: 7px;
-  width: 7px;
-  border: 1px solid var(--white-color);
-  border-color: var(--white-color) transparent transparent var(--white-color);
-  position: absolute;
-  right: 14.7px;
-  top: 49%;
-  z-index: 25;
-  transform: rotate(223deg);
-  pointer-events: none;
-}
-
-.choices[data-type*=select-one].is-open:after{
-  top: 45%;
-  margin-top: 0;
-  transform: rotate(45deg);
-  border: 1px solid var(--white-color);
-  border-color: var(--white-color) transparent transparent var(--white-color);
-}
-
-/* .choices:active, .choices:focus{
-  border: 2px solid var(--outline-color);
-  border-radius: 6px;
-} */
-
-.choices__item--choice,
-.choices__inner  {
-  transition: outline .3s ease-in-out, border-color .3s ease-in-out;
-}
-
-.choices__item--choice:hover {
-  outline: var(--hover-color);
-}
-
-.choices__inner:focus {
-  border-color: var(--outline-color);
-}
-
-.choices__list--dropdown .choices__item--selectable.is-selected{
-  display: none;
-}
-
-.choices__list--dropdown .choices__item--selectable.is-highlighted{
+.gallery-modal-card-close {
+  position        : absolute;
+  right           : 10px;
+  top             : 10px;
+  width           : 24px;
+  height          : 24px;
+  background      : none;
+  border          : none;
+  cursor          : pointer;
   background-color: transparent;
+  outline         : none;
 }
 
-.gallery__swiper-container {
-  width: 72%;
-  height: 825px;
-  flex-shrink: 1;
+.gallery-modal-card-close::before,
+.gallery-modal-card-close::after {
+  content      : "";
+  display      : block;
+  position     : absolute;
+  left         : 0;
+  right        : 10px;
+  border-bottom: 2px solid var(--black);
+  transform    : rotate(45deg);
 }
 
-.gallery__swiper-wrapper {
-  z-index: 100;
+.gallery-modal-card-close::after {
+  transform: rotate(-45deg);
 }
 
-.gallery__swiper-slide {
-  max-width: 350px;
-  max-height: 350px;
-  border: 2px solid transparent;
-  position: relative;
-}
-
-.gallery__swiper-button {
-  border: 2px solid transparent;
-}
-
-.gallery__swiper-button::before {
-  content: '';
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(194, 131, 243, 0.4);
-}
-
-.gallery__swiper-button::after {
-  content: '';
-  display: block;
-  display: none;
-  background-image: url(../img/loupe.svg);
+.gallery-modal-card-img {
+  width            : 40%;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 25%;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 85%;
-  height: 85%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 7%;
+  background-size  : cover;
 }
 
-.gallery__swiper-button:focus {
-  border: 2px solid var(--outline-color);
-  outline: none;
+.gallery-modal-card-text {
+  padding: 130px 30px 130px 48px;
+  width  : 59%;
 }
 
-.gallery__swiper-button:hover::after {
-  display: block;
+.gallery-modal-card-text__name {
+  font-weight: 600;
 }
 
-.gallery__swiper-button:active::before {
-  display: block;
+.img1 {
+  background-image: url(../img/gallery/gal.320.01.jpg);
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  position: relative;
-  top: 15px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #666666;
-  display: inline-block;
-  z-index: 100;
-  border: 2px solid #666666;
-  transition: all .3s ease-in-out;
+.img2 {
+  background-image: url(../img/gallery/gal.320.02.jpg);
 }
 
-.swiper-button-prev {
-  left: 0;
+.img3 {
+  background-image: url(../img/gallery/gal.320.03.jpg);
 }
 
-.swiper-button-next {
-  right: 0;
+.img4 {
+  background-image: url(../img/gallery/gal.320.04.jpg);
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background: var(--hover-color);
-  border: 2px solid var(--hover-color);
+.img5 {
+  background-image: url(../img/gallery/gal.320.05.jpg);
 }
 
-.swiper-button-next:active,
-.swiper-button-prev:active {
-  background: var(--outline-color);
-  border: 2px solid #D1A9F0;
+.img6 {
+  background-image: url(../img/gallery/gal.320.06.jpg);
 }
 
-.swiper-button-next:focus,
-.swiper-button-prev:focus {
-  outline: none;
-  border: 2px solid var(--black-color);
+.img7 {
+  background-image: url(../img/gallery/gal.320.07.jpg);
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  position: absolute;
-  top: 8px;
-  display: block;
-  color: var(--white-color);
-  font-size: 10px;
+.img8 {
+  background-image: url(../img/gallery/gal.320.08.jpg);
 }
 
-.swiper-button-next::after{
-  left: 10px;
+.img9 {
+  background-image: url(../img/gallery/gal.320.09.jpg);
 }
 
-.swiper-button-prev::after {
-  left: 10px;
+.img10 {
+  background-image: url(../img/gallery/gal.320.10.jpg);
 }
 
-.swiper-pagination {
-  color: var(--white-color);
+.img11 {
+  background-image: url(../img/gallery/gal.320.11.jpg);
 }
 
-.gallery__swiper-navagation{
-  display: flex;
-  width: 130px;
-  justify-content: space-between;
-  margin-top: 26px;
-  margin-bottom: 30px;
-  margin-left: 6px;
+.img12 {
+  background-image: url(../img/gallery/gal.320.12.jpg);
 }
 
-.gallery__swiper-pagination{
-  width: auto;
-  text-align: center;
-  color: white;
+.img13 {
+  background-image: url(../img/gallery/gal.320.13.jpg);
 }
 
-@media (max-width: 1366px) {
-  .gallery__swiper-button::before {
-    height: 81%;
-  }
-
-  .gallery__swiper-button::after {
-    height: 69%;
-    top: 40%;
-  }
+.img14 {
+  background-image: url(../img/gallery/gal.320.14.jpg);
 }
 
+.img15 {
+  background-image: url(../img/gallery/gal.320.15.jpg);
+}
 
-@media (max-width: 1024px) {
-  .gallery__filter {
-    width: 47%;
-    margin-right: 43px;
-  }
+.img16 {
+  background-image: url(../img/gallery/gal.320.16.jpg);
+}
 
-  .gallery__swiper-container {
-    max-width: 100%;
-    width: 100%;
-    height: 668px;
-  }
+.img17 {
+  background-image: url(../img/gallery/gal.320.17.jpg);
+}
 
-  .gallery__swiper-navagation {
-    margin-bottom: 31px;
-    margin-left: 6px;
-  }
+.img18 {
+  background-image: url(../img/gallery/gal.320.18.jpg);
+}
 
-  .gallery__swiper-slide {
-    max-width: 284px;
-    max-height: 281px;
-  }
+.img19 {
+  background-image: url(../img/gallery/gal.320.19.jpg);
+}
 
-  .gallery__descr {
-    line-height: 32px;
-    max-width: 93%;
-    margin-bottom: -18px;
-  }
+.img20 {
+  background-image: url(../img/gallery/gal.320.20.jpg);
+}
 
-  .gallery__swiper-button:hover::after {
-    display: none;
-  }
+.img21 {
+  background-image: url(../img/gallery/gal.320.21.jpg);
+}
 
-  .gallery__swiper-button:active::before {
-    display: none;
-  }
+.img22 {
+  background-image: url(../img/gallery/gal.320.22.jpg);
+}
+
+.img23 {
+  background-image: url(../img/gallery/gal.320.23.jpg);
+}
+
+.img24 {
+  background-image: url(../img/gallery/gal.320.24.jpg);
+}
+
+.img25 {
+  background-image: url(../img/gallery/gal.320.25.jpg);
+}
+
+.img26 {
+  background-image: url(../img/gallery/gal.320.26.jpg);
+}
+
+.img27 {
+  background-image: url(../img/gallery/gal.320.27.jpg);
+}
+
+.img28 {
+  background-image: url(../img/gallery/gal.320.28.jpg);
+}
+
+.img29 {
+  background-image: url(../img/gallery/gal.320.29.jpg);
+}
+
+.img30 {
+  background-image: url(../img/gallery/gal.320.30.jpg);
 }
 
 
-@media (max-width: 970px) {
-  .gallery {
-    position: relative;
-    padding-bottom: 70px;
-    padding-top: 87px;
-  }
-
-  .gallery__content {
-    flex-direction: column;
-  }
-  .gallery__filter {
-    width: 42%;
-    margin-right: 0;
-  }
-
-  .gallery__swiper-navagation {
-    margin-left: 0px;
-  }
-
-  .gallery__swiper-container {
-    max-width: 100%;
-    height: 725px;
-    margin-bottom: 43px;
-  }
 
 
-  .gallery__descr {
+
+.gallery {
+  position        : relative;
+  margin-top      : 70px;
+  background-image: url(../img/gallery/birmingham-museums-trust-1920.jpg);
+  background-size : cover;
+  overflow        : hidden
+}
+
+.gallery-grid {
+  display      : flex;
+  padding-left : 100px;
+  padding-right: 100px
+}
+
+.gallery-left {
+  display       : flex;
+  flex-direction: column
+}
+
+.gallery-left__header {
+  margin-left: 2px;
+  padding-top: 80px;
+  color      : var(--white)
+}
+
+.gallery-left__text {
+  margin-top : 15px;
+  margin-left: 4px;
+  font-weight: 600;
+  color      : var(--white)
+}
+
+.gallery-info {
+  position      : absolute;
+  bottom        : 70px;
+  width         : 401px;
+  color         : var(--white);
+  letter-spacing: 0.4px;
+  margin-left   : 4px
+}
+
+.gallery-info__login {
+  color     : var(--darkmoderateviolet);
+  transition: 0.5s ease-in-out;
+}
+
+.gallery-left-select {
+  margin-top : 10px;
+  margin-left: 5px;
+  width      : 400px;
+  height     : 39px
+}
+
+.choices__inner {
+  padding         : 0;
+  padding-left    : 10px;
+  height          : 40px;
+  min-height      : 0;
+  border          : 1px solid var(--white);
+  background-color: transparent;
+  border-radius   : 6px;
+  font-size       : 16px;
+  line-height     : 32px;
+  color           : var(--white)
+}
+
+.is-open .choices__inner {
+  border          : 1px solid var(--white);
+  background-color: transparent;
+  border-radius   : 6px;
+  color           : var(--white)
+}
+
+.choices__list--dropdown {
+  border          : 1px solid var(--gray60);
+  background-color: transparent;
+  border-radius   : 6px;
+  color           : var(--white)
+}
+
+.is-open .choices__list--dropdown {
+  border          : 1px solid var(--gray60);
+  background-color: transparent;
+  border-radius   : 6px
+}
+
+.choices__list--dropdown .choices__item--selectable .is-highlighted::after {
+  display: none
+}
+
+.choices[data-type*=select-one]:after {
+  top         : 19px;
+  right       : 16px;
+  width       : 7px;
+  height      : 7px;
+  border      : 1px solid var(--white);
+  border-width: 0 1px 1px 0;
+  transform   : rotate(45deg);
+  z-index     : 3
+}
+
+.choices[data-type*=select-one].is-open:after {
+  top         : 23px;
+  width       : 7px;
+  height      : 7px;
+  border      : 1px solid var(--white);
+  border-width: 0 1px 1px 0;
+  transform   : rotate(45deg);
+  z-index     : 3
+}
+
+#choices--select-item-choice-1 {
+  display: none
+}
+
+#choices--select-item-choice-2 {
+  border: 1px solid var(--gray60)
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background-color: transparent
+}
+
+.choices__list--single {
+  padding-top : 2px;
+  padding-left: 5px
+}
+
+.gallery-right {
+  margin-top : 104px;
+  margin-left: 50px
+}
+
+.gallery-right-swiper-container {
+  height: 830px;
+  width : 1155px
+}
+
+.gallery-swiper-slide {
+  height             : 350px;
+  outline            : 2px solid transparent;
+  background-position: center
+}
+
+.gallery-right-swiper-button {
+  width          : 133px;
+  display        : flex;
+  justify-content: space-between
+}
+
+.gallery-right-swiper-button__prev::after,
+.gallery-right-swiper-button__next::after {
+  display: none
+}
+
+.gallery-right-swiper-button__prev,
+.gallery-right-swiper-button__next {
+  margin-bottom      : 30px;
+  position           : static;
+  background         : var(--verydarkgray);
+  width              : 30px;
+  height             : 30px;
+  border-radius      : 30px;
+  background-position: center;
+  background-repeat  : no-repeat;
+  cursor             : pointer
+}
+
+.gallery-right-swiper-button__prev {
+  background-image: url(../img/gallery/left-ctr.png)
+}
+
+.gallery-right-swiper-button__next {
+  background-image: url(../img/gallery/right-str.png)
+}
+
+.swiper-pagination-fraction {
+  top      : 0;
+  width    : 40px;
+  position : relative;
+  font-size: 16px;
+  color    : var(--white)
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .gallery-swiper-slide__picture:hover:after {
+    content : '';
     position: absolute;
-    bottom: 86px;
-    left: 50px;
-    right: 50px;
-    margin-left: 0;
+    top     : 0;
+    right   : 0;
+    bottom  : 0;
+    left    : 0;
+    margin  : 25px;
+    background:
+      url(../img/gallery/plus.png) center/79px no-repeat,
+      url(../img/gallery/fon.png) center/300px no-repeat;
+    background-repeat    : no-repeat;
+    background-attachment: scroll;
+    background-position  : center;
+    cursor               : pointer
   }
 
-  .gallery__swiper-slide {
-    max-width: 317px;
-    max-height: 281px;
-  }
-
-  .gallery__slide-img {
-    width: 317px;
-    height: 280px;
-    object-fit: cover;
+  .gallery-info__login:hover {
+    transition : 0.5s ease-in-out;
+    font-weight: 700;
   }
 }
 
+.gallery-swiper-slide:focus {
+  outline: 2px solid var(--darkmoderateviolet)
+}
 
-@media (max-width: 667px) {
+.gallery-right-swiper-button__next:focus {
+  outline: transparent;
+  border : 1px solid var(--white)
+}
+
+.gallery-right-swiper-button__prev:focus {
+  outline: transparent;
+  border : 2px solid var(--white)
+}
+
+.gallery-info__login:focus {
+  transition: 0.5s ease-in-out;
+  outline   : 2px solid var(--darkmoderateviolet);
+}
+
+@media(max-width:1720px) {
+  .gallery-grid {
+    padding      : 0;
+    padding-left : 20px;
+    padding-right: 20px
+  }
+
+  .gallery-right-modal--visible {
+    transform: translateX(0) translateY(0);
+  }
+
+  .gallery-modal-card-text {
+    padding: 20px;
+  }
+
+  .gallery-right-swiper-container {
+    height: 670px;
+    width : 740px
+  }
+
+  .gallery-swiper-slide {
+    height: 213px
+  }
+
+  .gallery-left-select {
+    width     : 280px;
+    margin-top: 8px
+  }
+}
+
+@media(max-width:1170px) {
+
+  /* .gallery-swiper-slide__picture:active:after {
+    margin: 10px;
+    background:
+      url(../img/gallery/plus.png) center/79px no-repeat,
+      url(../img/gallery/fon.png) center/250px no-repeat,
+      linear-gradient(0deg, rgba(var(--softviolet--rgb), 0.4), rgba(var(--softviolet--rgb), 0.4));
+  } */
+
+  .gallery-swiper-slide__picture:active:after {
+    content : '';
+    position: absolute;
+    top     : 0;
+    right   : 0;
+    bottom  : 0;
+    left    : 0;
+    background:
+      url(../img/gallery/plus.png) center/79px no-repeat,
+      url(../img/gallery/fon.png) center/240px no-repeat,
+      linear-gradient(0deg, rgba(var(--softviolet--rgb), 0.4), rgba(var(--softviolet--rgb), 0.4));
+    border               : 2px solid var(--verysoftviolet);
+    background-attachment: scroll;
+    cursor               : pointer
+  }
+
+  .gallery-info__login:active {
+    transition: 0.5s ease-in-out;
+    outline   : 2px solid var(--white);
+  }
+
+  .gallery-grid {
+    padding: 19px 39px 2px 35px
+  }
+
+  .gallery-left__header {
+    padding-top: 61px
+  }
+
+  .choices__list--dropdown {
+    height: 80px
+  }
+
+  .gallery-swiper-slide {
+    height: 280px
+  }
+
+  .gallery-right {
+    margin-left: 49px;
+    margin-top : 87px
+  }
+
+  .gallery-right-swiper-container {
+    height: 670px;
+    width : 596px
+  }
+
+  .gallery-info {
+    width: 284px
+  }
+
+  .gallery-left__text {
+    margin-top: 17px
+  }
+
+  #choices--select-item-choice-2 {
+    border      : 1px solid var(--gray60);
+    height      : 40px;
+    padding-left: 19px;
+    padding     : 2px 20px 10px 19px
+  }
+
+  #choices--select-item-choice-3 {
+    border : 1px solid var(--gray60);
+    height : 40px;
+    padding: 2px 20px 10px 19px
+  }
+}
+
+@media(max-width:976px) {
   .gallery {
-    padding-top: 55px;
-    padding-bottom: 130px;
+    background-image: url(../img/gallery/birmingham-museums-trust-768.jpg)
   }
 
-  .gallery__title {
-    margin-bottom: 21px;
+  .gallery-swiper-slide__picture:active:after {
+    background:
+      url(../img/gallery/plus.png) center/79px no-repeat,
+      url(../img/gallery/fon.png) center/250px 210px no-repeat,
+      linear-gradient(0deg, rgba(var(--softviolet--rgb), 0.4), rgba(var(--softviolet--rgb), 0.4));
   }
 
-  .gallery__subtitle {
-    margin-bottom: 12px;
+  .gallery-modal-card {
+    width: 675px;
   }
 
-  .gallery__filter {
-    margin-bottom: 10px;
-    width: 100%;
-    padding-left: 0;
+  .gallery-modal-card-text__text {
+    line-height: 18px;
   }
 
-  .gallery__swiper-container {
-    width: 100%;
-    display: flex;
+  .gallery-swiper-slide {
+    height: 280px
+  }
+
+  .gallery-grid {
     flex-direction: column;
-    height: 470px;
+    padding-bottom: 70px
   }
 
-  .gallery__swiper-slide {
-    max-width: 100%;
-    max-height: 367px;
-    text-align: center;
+  .gallery-info {
+    width : 86%;
+    bottom: 69px
   }
 
-  .gallery__slide-img {
-    width: 290px;
-    height: 367px;
-    object-fit: cover;
+  .gallery-right-swiper-container {
+    width : 668px;
+    height: 618px
   }
 
-  .gallery__swiper-wrapper  {
-    order: 1;
+  .gallery-right-swiper-button {
+    margin-left: 3px
   }
 
-  .gallery__swiper-navagation {
-    margin-left: auto;
-    margin-right: auto;
-    order: 2;
+  .gallery-right {
+    margin-left   : 0;
+    margin-top    : 109px;
+    padding-bottom: 70px
+  }
+}
+
+@media(max-width:730px) {
+  .gallery-swiper-slide__picture:active:after {
+    background:
+      url(../img/gallery/plus.png) center/79px no-repeat,
+      url(../img/gallery/fon.png) center/210px 180px no-repeat,
+      linear-gradient(0deg, rgba(var(--softviolet--rgb), 0.4), rgba(var(--softviolet--rgb), 0.4));
   }
 
-  .swiper-pagination {
-    top: auto;
-    left: 45%;
+  .gallery-right-swiper-container {
+    width: 500px
   }
 
-  .gallery__descr {
-    left: 16px;
-    right: 21px;
-    bottom: 59px;
+  .gallery-modal-card {
+    width: 450px;
   }
 
-  .gallery__swiper-navagation {
-    margin-bottom: 54px;
+  .gallery-modal-card-text {
+    width: 100%;
+  }
+
+  .gallery-modal-card-img {
+    display: none;
+  }
+
+  .gallery-swiper-slide {
+    height: 212px
+  }
+
+  .gallery-grid {
+    padding-left : 0;
+    padding-right: 0
+  }
+}
+
+@media(max-width:499px) {
+  .gallery-right {
+    display       : flex;
+    flex-direction: column-reverse;
+    padding-bottom: 237px
+  }
+
+  .gallery-swiper-slide__picture:active:after {
+    background:
+      url(../img/gallery/plus.png) center/79px no-repeat,
+      url(../img/gallery/fon.png) center/250px 320px no-repeat,
+      linear-gradient(0deg, rgba(var(--softviolet--rgb), 0.4), rgba(var(--softviolet--rgb), 0.4));
+  }
+
+  .gallery-modal-card {
+    width: 300px;
+  }
+
+  .gallery-modal-card-text__header {
+    font-size: 16px;
+  }
+
+  .gallery-modal-card-text__name {
+    font-weight: 400;
+  }
+
+  .gallery-modal-card-text__text {
+    font-size  : 12px;
+    line-height: 18px;
+  }
+
+  .gallery-info {
+    bottom: 70px
+  }
+
+  .gallery-swiper-slide {
+    height: 328px
+  }
+
+  .gallery-grid {
+    padding-bottom: 0
+  }
+
+  .gallery-right-swiper-container {
+    display       : flex;
+    flex-direction: column-reverse;
+    width         : 290px
+  }
+
+  .swiper-pagination-fraction {
+    width: 65px
+  }
+
+  .gallery-right-swiper-button {
+    margin    : 0 auto;
+    margin-top: 18px
+  }
+
+  .gallery-left {
+    padding-bottom: 40px
+  }
+
+  .gallery-left__header {
+    font-size  : 38px;
+    line-height: 38px;
+    padding-top: 40px
+  }
+
+  .gallery-right-swiper-container {
+    height: 410px
+  }
+}
+
+@media(max-width:320px) {
+  .gallery {
+    margin-top      : 42px;
+    background-image: url(../img/gallery/birmingham-museums-trust-320.jpg)
+  }
+
+  .gallery-right {
+    margin-top: 81px
+  }
+
+  .gallery-left__header {
+    padding-top: 30px;
+    font-size  : 28px;
+    font-weight: normal
+  }
+
+  .gallery-left__text {
+    margin-top : 12px;
+    margin-left: 4px
+  }
+
+  .gallery-left-select {
+    width     : 290px;
+    margin-top: 5px
+  }
+
+  .gallery-right-swiper-container {
+    height: 367px
+  }
+
+  .gallery-swiper-slide {
+    height: 374px
+  }
+
+  .gallery-right-swiper-button__prev,
+  .gallery-right-swiper-button__next {
+    margin-bottom: 14px
   }
 }

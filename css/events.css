@@ -1,294 +1,402 @@
-.events {
-  padding-top: 98px;
-  padding-bottom: 78px;
+.events-title {
+  margin-top  : 61px;
+  padding-left: 104px
 }
 
-.events__head-title {
-  margin-bottom: 20px;
-  margin-bottom: 21px;
+.event-pagination {
+  display: none
 }
 
-.events__list {
-  display: flex;
-  justify-content: start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+.events-wrapper {
+  margin-top : 14px;
+  margin-left: 105px;
+  display    : flex;
+  flex-wrap  : wrap
 }
 
-.events__item {
-  position: relative;
-  display: flex;
+.events-slide {
+  position      : relative;
+  min-height    : 700px;
+  display       : flex;
   flex-direction: column;
-  margin-bottom: 49px;
-  margin-right: 3%;
-  max-width: 31.3%;
-  min-height: 700px;
-  border: 1px solid #CACACA;
+  flex          : 0 0 29.3%;
+  margin-right  : 50px;
+  border        : 1px solid var(--lightgray);
+  outline       : transparent;
+  flex-wrap     : wrap
 }
 
-.events__date {
-  margin-bottom: 2px;
+.events-slide-hidden {
+  margin-top: 50px;
+  display   : none
 }
 
-.events__item:nth-child(3n) {
-  margin-right: 0;
+.events-slide--active {
+  display: flex
 }
 
-.events__item-bg {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: top center;
-  max-width: 500px;
-  height: 300px;
-  margin-bottom: 13px;
+.events-slide__small-text {
+  margin-right: 16px;
+  margin-top  : 4px;
+  font-weight : 600;
+  text-align  : right;
 }
 
-.event-1 {
-  background-image: url(../img/event/event_1.jpg);
+.events-slide__big-text {
+  padding: 6px 30px 2px 50px
 }
 
-.event-2 {
-  background-image: url(../img/event/event_2.jpg);
+.events-slide__medium-text {
+  padding: 2px 50px 83px 50px
 }
 
-.event-3 {
-  background-image: url(../img/event/event_3.jpg);
+.medium-text-one::after {
+  content: 'художественной мастерской,где юный Микеланджело.'
 }
 
-.event-4 {
-  background-image: url(../img/event/event_4.jpg);
+.medium-text-two::after {
+  content: 'количественный рост и сфера нашей активности представляет собой интересный эксперимент проверки новых принципов формирования...'
 }
 
-.event-5 {
-  background-image: url(../img/event/event_5.jpg);
+.medium-text-three::after {
+  content: 'планирование играет определяющее значение для новых принципов формирования материально-технической и кадровой базы..'
 }
 
-.events__item-text {
-  padding: 0 19px 48px 50px;
+.medium-text-four::after {
+  content: 'что иное,как квинтэссенцию победы маркетинга над разумом и должны быть рассмотрены исключительно в разрезе маркетинговых и финансовых...'
 }
 
-.small-text  {
-  display: block;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  text-align: right;
-  color: #999999;
+.medium-text-five::after {
+  content: 'Ридольфо. Глава художественной мастерской,где юный Микеланджело.'
 }
 
-.events__title {
-  margin-bottom: 4px;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-  max-width: 98%;
+.medium-text-six::after {
+  content: 'официальным амбассадором этого культурного направления.В творчестве предпочитает не гнаться за трендами,а ...'
 }
 
-.events__descr {
-  max-width: 94%;
-  margin-bottom: 18px;
-  line-height: 200%;
+.events-slide__link {
+  position     : absolute;
+  bottom       : 42px;
+  margin-left  : 50px;
+  line-height  : 23px;
+  border-bottom: 1px solid var(--moderateviolet);
+  transition   : all 0.5s linear;
+  color        : var(--moderateviolet)
 }
 
-.events__more {
-  position: absolute;
-  bottom: 46px;
-  left: 50px;
-<<<<<<< HEAD
-  color:var(--hover-color);
-=======
-  color: var(--hover-color);
->>>>>>> cab5824b97f6832140f1d745023d37f89983553f
-  /* text-decoration: underline; */
-  transition: font-weight .3s ease-in-out, color .3s ease-in-out, background .3s ease-in-out;
+.events-btn {
+  display         : block;
+  margin          : auto;
+  margin-top      : 50px;
+  border          : none;
+  outline         : none;
+  min-width       : 188px;
+  padding         : 1px;
+  min-height      : 59px;
+  font-weight     : bold;
+  font-size       : 18px;
+  line-height     : 25px;
+  text-align      : center;
+  border-radius   : 100px;
+  background-color: transparent;
+  border          : 2px solid var(--moderateviolet);
+  color           : var(--moderateviolet);
+  transition      : 0.5s ease-in-out;
+  cursor          : pointer
 }
 
-<<<<<<< HEAD
-.events__more::before {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-=======
-.events__more::after {
-  content: '';
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
->>>>>>> cab5824b97f6832140f1d745023d37f89983553f
-  background-color: var(--hover-color);
+.events-btn--active {
+  display: none
 }
 
-.events__more:hover {
-  color: var(--outline-color);
-}
-
-.events__more:focus {
-  color: var(--white-color);
-  background: var(--hover-color);
-}
-
-.events__more:active {
-  color: var(--black-color);
-  background: var(--white-color);
-}
-
-.all-events {
-  padding: 17px 35px;
-  margin: 0 auto;
-  display: block;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 25px;
-  text-align: center;
-}
-
-.all-events:focus {
-  border: 3px solid var(--outline-color);
-  outline: none;
-  transition: color .3s ease-in-out;
-}
-
-.all-events:hover {
-  color: var(--white-color);
-}
-
-.event-hidden {
-  display: none;
-}
-
-.events__slider-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.events__slider-container .swiper-wrapper {
-  flex-wrap: wrap;
-}
-
-
-@media (max-width: 1366px) {
-  .events__item-bg {
-    height: 260px;
+@media (hover:hover) and (pointer:fine) {
+  .events-slide__link:hover {
+    font-weight: 700;
+    transition : all 0.3s linear;
   }
 
-  .events__item-text {
-    padding: 0 20px 48px 19px;
-  }
-
-  .events__descr {
-    max-width: 100%;
+  .events-btn:hover {
+    background-color: var(--moderateviolet);
+    color           : var(--white);
+    border          : 2px solid var(--moderateviolet);
+    transition      : 0.5s ease-in-out;
   }
 }
 
-@media (max-width: 1024px) {
-  .events {
-    padding-top: 83px;
-    padding-bottom: 75px;
+.events-slide__link:focus {
+  outline: 2px solid var(--darkmoderateviolet)
+}
+
+.events-btn:focus {
+  background-color: var(--moderateviolet);
+  color           : var(--white);
+  font-size       : 20px;
+  transition      : 0.7s ease-in-out;
+}
+
+@media(max-width:1455px) {
+
+  .events-slide__link:active {
+    font-weight     : 700;
+    color           : var(--darkmoderateviolet);
+    background-color: transparent;
   }
 
-  .events__item {
-    margin-bottom: 50px;
-    min-height: 682px;
+  .events-btn:active {
+    background-color: var(--moderateviolet);
+    color           : var(--white);
+    transition      : 0.5s ease-in-out;
   }
 
-  .events__item-bg {
-    height: 197px;
-    background-size: 113%;
-    max-width: 100%;
+
+  .events-slide {
+    min-height: 683px
   }
 
-  .events__item-text {
-    padding: 0 19px 48px 32px;
+  .events-title {
+    margin-top  : 60px;
+    padding-left: 37px
   }
 
-  .events__more {
-    bottom: 54px;
-    left: 37px;
+  .medium-text-one::after {
+    content: '...'
+  }
+
+  .medium-text-two::after {
+    content: '...'
+  }
+
+  .medium-text-three::after {
+    content: '...'
+  }
+
+  .medium-text-four::after {
+    content: '...'
+  }
+
+  .medium-text-five::after {
+    content: '...'
+  }
+
+  .medium-text-six::after {
+    content: '...'
+  }
+
+  .events-wrapper {
+    margin-left: 41px;
+    margin-top : 16px
+  }
+
+  .events-slide {
+    margin-right: 27px;
+    flex        : 0 0 30%
+  }
+
+  .events-slide-hidden {
+    margin-top: 27px;
+  }
+
+  .events-slide__small-text {
+    margin-right: 16px;
+    margin-top  : 4px
+  }
+
+  .events-slide__big-text {
+    padding: 6px 24px 0 34px
+  }
+
+  .events-slide__medium-text {
+    padding: 4px 30px 90px 35px
+  }
+
+  .events-slide__link {
+    bottom     : 52px;
+    margin-left: 34px
   }
 }
 
-@media (max-width: 970px) {
-  .events {
-    padding-top: 75px;
-    padding-bottom: 78px;
+@media(max-width:920px) {
+  .events-slide {
+    border: 1px solid transparent;
+
   }
 
-  .events__head-title {
-    margin-bottom: 21px;
+  .events-slide {
+    margin-right: 34px;
+    flex        : 0 0 39%
   }
 
-  .events__item {
-    max-width: 47%;
-    margin-right: 5%;
+  .events-slide-hidden {
+    margin-top: 34px;
   }
 
-  .events__item:nth-child(2n) {
-    margin-right: 0;
+  .events-slide__medium-text {
+    padding: 3px 30px 90px 33px
   }
 
-  .events__item:nth-child(3n) {
-    margin-right: 5%;
+  .events-slide-three {
+    order: 1
+  }
+
+  .events-title {
+    margin-top  : 49px;
+    padding-left: 37px
+  }
+
+  .events-slide__small-text {
+    margin-right: 18px;
+    margin-top  : 4px
+  }
+
+  .events-slide__link {
+    bottom     : 47px;
+    margin-left: 35px
   }
 }
 
-
-@media (max-width: 767px) {
-  .events {
-    padding-top: 55px;
-    padding-bottom: 29px;
+@media(max-width:768px) {
+  .events-slide {
+    border: 1px solid var(--lightgray);
+    flex  : 0 0 44.8%;
   }
 
-  .events__head-title {
-    margin-bottom: 15px;
+  .events-btn {
+    margin-top: 51px
   }
 
-  .events__item {
-    min-width: 100%;
-    min-height: 683px;
-    margin-right: 0;
+  .events-slide__medium-text {
+    padding: 2px 30px 90px 33px
   }
 
-  .events__item-bg {
-    height: 200px;
+  .events-slide__big-text {
+    padding: 6px 24px 2px 33px
   }
 
-  .events__item-text {
-    padding: 0 10px 48px 28px;
-    max-width: 98%;
+  .medium-text-one::after {
+    content: ' художественной мастерской...'
   }
 
-  .events__title {
-    margin-bottom: 36px;
-    max-width: 100%;
+  .events-slide__small-text {
+    margin-right: 17px;
+    margin-top  : 5px
   }
 
-  .events__more {
-    bottom: 50px;
-    left: 30px;
+  .events-slide__link {
+    bottom     : 48px;
+    margin-left: 34px
+  }
+}
+
+@media(max-width:715px) {
+  .events-slide {
+    margin-right: 15px
   }
 
-  .all-events {
-    display: none;
+  .events-slide-hidden {
+    margin-top: 15px;
   }
-  .events__slider-container .swiper-wrapper {
-    flex-wrap: nowrap;
+}
+
+@media (max-width:550px) {
+  .event-pagination {
+    display: block
   }
 
-  .swiper-container-horizontal> .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: 18px;
+  .events-slide {
+    border: 1px solid transparent
   }
 
-  .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
-    margin: 0 8px;
+  .events-container {
+    overflow: hidden;
+    width   : 100%
+  }
+
+  .events-container .events-wrapper {
+    display        : flex;
+    justify-content: space-between;
+    flex-wrap      : wrap
+  }
+
+  .events-btn {
+    display: none
+  }
+
+  .events-slide {
+    display    : flex;
+    flex       : 0 0 100%;
+    margin     : 0;
+    flex-shrink: 0
+  }
+
+  .events-slide-hidden {
+    margin: 0;
+  }
+
+  .events-container .events-wrapper {
+    margin-left    : 0;
+    justify-content: initial;
+    flex-wrap      : nowrap
+  }
+
+  .event-pagination {
+    position  : relative;
+    margin-top: 7px
   }
 
   .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
+    position        : static;
+    margin-right    : 17px;
+    width           : 10px;
+    height          : 10px;
+    border-radius   : 100%;
+    background-color: var(--verydarkgray)
+  }
+}
+
+@media (max-width:320px) {
+  .events-slide {
+    flex: 0 0 97%
+  }
+
+  .events-title {
+    font-size   : 28px;
+    line-height : 38px;
+    margin-top  : 36px;
+    padding-left: 2px
+  }
+
+  .events-slide__small-text {
+    margin-right: 10px;
+    margin-top  : 6px
+  }
+
+  .events-slide__big-text {
+    padding: 4px 12px 2px 27px
+  }
+
+  .events-slide__medium-text {
+    padding: 35px 25px 74px 28px
+  }
+
+  .medium-text-one::after {
+    content: '...'
+  }
+
+  .events-slide__link {
+    bottom     : 51px;
+    margin-left: 28px;
+    line-height: 26px
+  }
+
+  .events-wrapper {
+    margin-top: 12px
+  }
+
+  .events-slide {
+    margin-left: 5px
+  }
+
+  .events-slide {
+    border: 1px solid var(--lightgray)
   }
 }

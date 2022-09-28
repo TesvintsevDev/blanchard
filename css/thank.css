@@ -1,0 +1,73 @@
+.form-text {
+  margin-top: 200px;
+  text-align: center;
+  height    : 100vh;
+}
+
+.text-center {
+  position   : relative;
+  font-size  : 38px;
+  font-weight: 700;
+  outline    : 0;
+  transition : 0.7s linear
+}
+
+.text-center::after {
+  position  : absolute;
+  content   : "";
+  border    : 2px solid var(--darkmoderateviolet);
+  width     : 553px;
+  height    : 91px;
+  left      : -186px;
+  top       : 2px;
+  transition: 0.5s linear;
+  opacity   : 0;
+}
+
+@media (hover:hover) and (pointer:fine) {
+
+  .text-center:hover {
+    color     : var(--moderateviolet);
+    font-size : 40px;
+    transition: 0.2s linear;
+  }
+}
+
+.text-center:focus::after {
+  opacity   : 1;
+  transition: 0.2s linear;
+}
+
+@media(max-width:1200px) {
+
+  .text-center:active {
+    color: var(--darkmoderateviolet);
+  }
+}
+
+@media(max-width:695px) {
+  .text-center {
+    font-size: 24px;
+  }
+
+  .text-center::after {
+    width : 353px;
+    height: 87px;
+    left  : -123px;
+    top   : -4px;
+  }
+}
+
+@media(max-width:400px) {
+  .text-center {
+    font-size  : 18px;
+    font-weight: 400;
+  }
+
+  .text-center::after {
+    width : 264px;
+    height: 79px;
+    left  : -93px;
+    top   : -10px;
+  }
+}

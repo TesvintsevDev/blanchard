@@ -1,7 +1,19 @@
 :root {
-  --white-color: #fff;
-  --black-color: #000;
-  --text-color: #333333;
-  --hover-color: #9D5CD0;
-  --outline-color: #7943A4;
+  --white: #ffffff;
+  --white--rgb: 255, 255, 255;
+  --black: #000000;
+  --black--rgb: 0, 0, 0;
+  --verydarkgray: #666666;
+  --gray90: #e5e5e5;
+  --gray60: #999999;
+  --gray20: #333333;
+  --lightgray: #cacaca;
+  --lightlightgray: #c4c4c4;
+  --verylightgray: #ececec;
+  --moderateviolet: #9d5cd0;
+  --moderateviolet--rgb: 157, 92, 208;
+  --darkmoderateviolet: #7943a4;
+  --verysoftviolet: #d1a9f0;
+  --softviolet: #c283f3;
+  --softviolet--rgb: 194, 131, 243;
 }
